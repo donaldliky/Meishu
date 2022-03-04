@@ -1,0 +1,71 @@
+.bodyShow {
+    width: 100%;
+    background-color: #0F0F0E;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    .maxcontainer {
+        max-width: 1440px;
+        width: 92.5%;
+        // padding-left: 32px;
+        margin: 0 auto;
+        padding: 0;
+
+        .nftYes {
+            // margin-left: 0;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-top: 45px;
+        }
+        .nftNo {
+  
+            img {
+                margin-top: 180px;
+            }
+            .desc1 {
+                font-family: Space Grotesk;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 22px;
+                line-height: 26px;
+                text-align: center;
+                letter-spacing: 0.5px;
+                color: #FEE403;
+                margin-top: 33px;
+            }
+            .desc2 {
+                font-family: Space Grotesk;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                text-align: center;
+                color: #FCFCFC;
+                margin-top: 8px;
+            }
+            .desc3 {
+                font-family: Space Grotesk;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 22px;
+                line-height: 26px;
+                text-align: center;
+                letter-spacing: 0.5px;
+                color: #076AFE;
+                margin-top: 48px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .bodyShow {
+        .maxcontainer {
+            .nftYes {
+                justify-content: center;
+            }
+        }
+    }
+}

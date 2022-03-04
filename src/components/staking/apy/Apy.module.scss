@@ -1,0 +1,103 @@
+.bodyApy {
+    padding: 24px;
+
+    position: static;
+    height: 176px;
+    // width: 100%;
+    background: rgba(7, 106, 254, 0.7);
+    backdrop-filter: blur(20px);
+    width: 439px;
+    border-radius: 8px;
+
+    .title {
+        font-family: Space Grotesk;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+
+        color: #FEE403;
+    }
+    .bottom {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        .left {
+        
+            color: white;
+            font-family: Space Grotesk;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .vertical {
+            border-left: 2px solid white;
+            height: 50px;
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-left: 1px solid white;
+            width: 55%;
+            padding-left: 5%;
+            .top {
+                
+            }
+            .bottom1 {
+                margin-top: 10px;
+                button {
+                    border: 1px solid #FCFCFC;
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                    
+                    // font-weight: bold;
+                    font-size: 16px;
+                    line-height: 24px;
+                    text-align: center;
+                    padding: 4px 24px;
+                    background: none;
+                    color: #FCFCFC;
+                    font-family: Space Grotesk;
+                }
+                
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bodyApy {
+        width: 100%;
+        // justify-content: space-around;
+        // .title {
+        //     font-size: 25px;
+        // }
+        height: 200px;
+        .bottom {
+            .left {
+                // font-size: 12px;
+                // width: 35%;
+            }
+            .right {
+                width: 80%;
+                .bottom1 {
+                    
+                    button {
+                        font-size: 14px;
+                        padding: 4px 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .bodyApy {
+        height: 210px;
+    }
+}

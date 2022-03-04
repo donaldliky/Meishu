@@ -1,0 +1,106 @@
+.bodyNav {
+    width: 100%;
+    background-color: #0F0F0E;
+    .maxcontainer {
+        max-width: 1440px;
+        width: 90%;
+        margin: 0 auto;
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 240px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .tab {
+                margin: 20px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .address {
+                padding: 12px 24px;
+                width: 148px;
+                height: 48px;
+                font-family: Space Grotesk;
+                color: #076AFE;
+                border-radius: 8px;
+                background: none;
+                border: 1px solid #076AFE;
+                box-sizing: border-box;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 8px;
+                box-shadow: 0px 0px 5px 4px #021a3d;
+            }
+        }
+    }    
+    
+}
+.hamburgerMenu {
+    width: 100%;
+    
+    // background-color: black;
+    color: white;
+    display: none;
+    .tab {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .address {
+        padding: 12px 24px;
+        width: 148px;
+        height: 48px;
+        font-family: Space Grotesk;
+        color: #076AFE;
+        border-radius: 8px;
+        background: none;
+        border: 1px solid #076AFE;
+        box-sizing: border-box;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 4px #021a3d;
+        margin-top: 50px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bodyNav {
+        position: fixed;
+        z-index: 50;
+        .maxcontainer {
+            .logo {
+                width: 180px;
+                img {
+                    margin-right: 10px;
+                }
+            }
+            .menu {
+                display: none;
+            }
+        }
+    }
+    .hamburgerMenu {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .bodyNav {
+        .maxcontainer {
+            .logo {
+                width: 150px;
+            }
+        }
+    }
+}
