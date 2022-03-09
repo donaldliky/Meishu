@@ -34,9 +34,9 @@ const Show = () => {
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
               <Box>
-                <TabList onChange={handleChange} aria-label="lab API tabs example" sx={{  ml: '130px', fontFamily: 'Space Grotesk' }}
+                <TabList onChange={handleChange} aria-label="lab API tabs example"
                   selected={true}
-                  sx={{height: '60px' ,'.MuiTabs-indicator': { bottom: 12, boxShadow: '0px 2px 8px 0.5px #076AFE',zIndex: '50', borderRadius: '2px'},'.MuiTab-root.Mui-selected': { color: 'white' } }}
+                  sx={{ml: '130px', fontFamily: 'Space Grotesk', height: '60px' ,'.MuiTabs-indicator': { bottom: 12, boxShadow: '0px 2px 8px 0.5px #076AFE',zIndex: '50', borderRadius: '2px'},'.MuiTab-root.Mui-selected': { color: 'white' } }}
                 >
                   <Tab  label="All" value="1" sx={{ color:'white', fontSize: '22px', fontFamily: 'Space Grotesk', textTransform: 'none', width: '40px', minWidth:'30px', ml: '30px', fontWeight:'bold' }} />
                   <Tab  label="Staked" value="2" sx={{ color:'white', fontSize: '22px', fontFamily: 'Space Grotesk', textTransform: 'none', minWidth: '30px', width: '100px', ml: '25px',fontWeight:'bold' }} />
@@ -51,7 +51,7 @@ const Show = () => {
                  
                 </div>
                 }
-                {isNft == 0 && 
+                {isNft === 0 && 
                   <div className={styles.nftNo} style={{ textAlign: 'center' }}>
                     <img src={getImg('fall.png')} alt='png' />
                     <div className={styles.desc1}>No Genesis NFT</div>
@@ -67,7 +67,7 @@ const Show = () => {
                         
                   </div>
                 }
-                {isNft1 == 0 && 
+                {isNft1 === 0 && 
                   <div className={styles.nftNo} style={{ textAlign: 'center' }}>
                     <img src={getImg('fall.png')} alt='png' />
                     <div className={styles.desc1}>No Genesis NFT</div>
