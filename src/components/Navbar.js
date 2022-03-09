@@ -3,16 +3,10 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 
 import styles from './Navbar.module.scss'
-
 import logo from '../assets/Logo.svg';
-import custom_cross from '../assets/custom_cross.svg'
-// import './hamburger.css'
 
 const Navbar = () => {
 
-    const showSettings = (event) => {
-        event.preventDefault();
-    }
     return (
         <div>
             <div className={styles.bodyNav}>
