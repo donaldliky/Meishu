@@ -1,5 +1,5 @@
 import React from 'react'
-import Faq_item from '../../../components/staking/faq/Faq_item'
+import FaqItem from '../../../components/staking/faq/Faq_item'
 
 import styles from './Faq.module.scss'
 const Faq = () => {
@@ -8,9 +8,9 @@ const Faq = () => {
       <div className={styles.maxcontainer}>
         <div className={styles.title}>FAQ</div>
           <div className={styles.items}>
-            <Faq_item/>
-            <Faq_item/>
-            <Faq_item/>
+            <FaqItem/>
+            <FaqItem/>
+            <FaqItem/>
           </div>
       </div>
     </div>

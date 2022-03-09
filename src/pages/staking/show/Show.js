@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,  } from 'react';
 import styles from './Show.module.scss'
 import Nft from '../../../components/nft/Nft'
 import { getImg } from '../../../utils/Helper';
@@ -8,7 +8,6 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import Tabs from '@mui/material/Tabs';
 
 import video1 from '../../../assets/MP4/IMG_1324.MP4'
 import video2 from '../../../assets/MP4/IMG_1325.MP4'
@@ -16,8 +15,8 @@ import video3 from '../../../assets/MP4/IMG_1326.MP4'
 
 
 const Show = () => {
-  const [isNft, setIsNft] = useState(2)
-  const [isNft1, setIsNft1] = useState(0)
+  const [isNft, ] = useState(2)
+  const [isNft1, ] = useState(0)
   const [value, setValue] = React.useState('1');
 
   var imgPath1 = 'img_nft1.png'

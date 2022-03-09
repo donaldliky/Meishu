@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './Footer.module.scss'
 
 import { getImg } from '../../utils/Helper'
-import Button from '@mui/material/Button';
 
 const Footer = () => {
   return (
@@ -62,24 +61,24 @@ const Footer = () => {
                 <div className={styles.sub_left}>
                     <div className={styles.products}>
                         <div className={styles.title}>Products</div>
-                        <div><a href='#'>Exchange</a></div>
-                        <div><a href='#'>Staking</a></div>
-                        <div><a href='#'>Rental</a></div>
-                        <div><a href='#'>Game</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Exchange</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Staking</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Rental</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Game</a></div>
                     </div>
                     <div className={styles.about}>
                         <div className={styles.title}>About</div>
-                        <div><a href='#'>Team</a></div>
-                        <div><a href='#'>Litepaper</a></div>
-                        <div><a href='#'>Updates</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Team</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Litepaper</a></div>
+                        <div><a href='https://meishu-staking-dapp.herokuapp.com/'>Updates</a></div>
                     </div>
                     <div className={styles.community}>
                         <div className={styles.title}>Community</div>
                         <div className={styles.icons}>
-                            <div><a href='#'><img src={getImg('telegram.png')} alt={'telegram'} /></a></div>
-                            <div><a href='#'><img src={getImg('twitter.png')} alt={'twitter'} /></a></div>
-                            <div><a href='#'><img src={getImg('youtube.png')} alt={'youtube'}/></a></div>
-                            <div><a href='#'><img src={getImg('medium.png')} alt={'medium'}/></a></div>
+                            <div><a href='https://meishu-staking-dapp.herokuapp.com/'><img src={getImg('telegram.png')} alt={'telegram'} /></a></div>
+                            <div><a href='https://meishu-staking-dapp.herokuapp.com/'><img src={getImg('twitter.png')} alt={'twitter'} /></a></div>
+                            <div><a href='https://meishu-staking-dapp.herokuapp.com/'><img src={getImg('youtube.png')} alt={'youtube'}/></a></div>
+                            <div><a href='https://meishu-staking-dapp.herokuapp.com/'><img src={getImg('medium.png')} alt={'medium'}/></a></div>
                         </div>
                     </div>
                 </div>

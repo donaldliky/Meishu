@@ -9,11 +9,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { Button } from '@mui/material';
 import './hamburger.css'
 const Navbar = () => {
-    const [value, setValue] = React.useState('1');
 
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
     return (
         <div style={{ backgroundColor: 'black' }}>
             
@@ -25,17 +21,9 @@ const Navbar = () => {
                     </div></Link>
                     <div className={styles.menu}>
                         <div className={styles.tab}>
-                            {/* <TabContext value={value}>
-                                <TabList onChange={handleChange} aria-label="lab API tabs example" >
-                                    <Tab label="NFT Staking" value="1" sx={{color: 'white', fontFamily: 'Space Grotesk' }} TabIndicatorProps={{style: {background:'red'}}} />
-                                    <Tab label="Staking" value="2" sx={{color: 'white'}} />
-                                </TabList>
-                            </TabContext> */}
+                            
                             <Linkbar />
                         </div>
-                        {/* <button className={styles.address}>
-                            0x56..84d9
-                        </button> */}
                         <Button variant="outlined" className={styles.address}>0x56..84d9</Button>
                     </div>
                 </div>

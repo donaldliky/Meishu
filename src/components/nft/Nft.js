@@ -12,9 +12,9 @@ const Nft = (props) => {
   const goToDetail = () => {
     navigate('/detail')
   }
+  
   return (
     <div className={styles.bodyNft}>
-        {/* <img src={getImg(props.imgPath)} /> */}
         <div className={styles.video}>
             <video autoPlay muted loop  >
                 <source src={props.video} type="video/mp4"/>
@@ -34,12 +34,12 @@ const Nft = (props) => {
             </div>
         </div>
         <hr className={styles.hr} style={{ width: '100%' }} />
-        {props.type === 1 &&
+        {props.type === '1' &&
             <div className={styles.btn}>
                 <Button onClick={goToDetail} variant='contained' sx={{ textTransform: 'none' }} >Enable Stake</Button>
             </div>
         }
-        {props.type === 0 &&    
+        {props.type === '0' &&    
             <div className={styles.type2}>
                 <div className={styles.section1}>
                     <div className={styles.left}> <MonetizationOnOutlinedIcon /> &nbsp;Earning </div>
