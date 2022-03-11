@@ -1,0 +1,31 @@
+.wallet-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .wallet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        .left {
+            img {
+                width: 60px;
+                height: 60px;
+            }
+            img:hover {
+                border: 1px solid white;
+            }
+        }
+        
+        .right {
+            color: black;
+            font-size: 25px;
+            font-family: Space Grotesk;
+        }
+        .right:hover {
+            border: 1px solid white;
+        }
+    }
+    
+}

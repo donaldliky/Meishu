@@ -13,7 +13,9 @@ import video1 from '../../../assets/MP4/IMG_1324.MP4'
 import video2 from '../../../assets/MP4/IMG_1325.MP4'
 import video3 from '../../../assets/MP4/IMG_1326.MP4'
 
-
+import Slider from '../../../components/staking/slider/Slider';
+// redux
+import { useDispatch, useSelector } from 'react-redux';
 const Show = () => {
   const [isNft, ] = useState(2)
   const [isNft1, ] = useState(0)
@@ -22,6 +24,9 @@ const Show = () => {
   var imgPath1 = 'img_nft1.png'
   var imgPath2 = 'img_nft2.png'
 
+  const allNfts = useSelector((state) => state.nft.allNfts)
+  const stakedNfts = useSelector((state) => state.nft.stakedNfts)
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -29,7 +34,7 @@ const Show = () => {
   return (
     <div className={styles.bodyShow}>
         <div className={styles.maxcontainer}>
-        
+          
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
               <Box>
@@ -42,15 +47,23 @@ const Show = () => {
                 </TabList>
               </Box>
               <TabPanel value="1" style={{ padding: '0px' }}>
-                {isNft > 0 && 
-                <div className={styles.nftYes}>
-                      <Nft type='1' imgPath={imgPath1} video={video1} />
-                      <Nft type='1' imgPath={imgPath1} video={video2} />
-                      <Nft type='0' imgPath={imgPath2} video={video3} />
-                 
+                {allNfts !== null && 
+                <div>
+                  {/* <Slider /> */}
+                  <div className={styles.nftYes}>
+                        {/* <Nft type='1' imgPath={imgPath1} video={video1} />
+                        <Nft type='1' imgPath={imgPath1} video={video2} />
+                        <Nft type='0' imgPath={imgPath2} video={video3} />
+                        <Nft type='1' imgPath={imgPath1} video={video2} /> */}
+                    {/* {allNftContent} */}
+                    {allNfts.map(nft => (
+                      <Nft key={nft.tokenId} type='0' 
+                      imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId}  />
+                    ))}
+                  </div>
                 </div>
                 }
-                {isNft === 0 && 
+                {allNfts === null && 
                   <div className={styles.nftNo} style={{ textAlign: 'center' }}>
                     <img src={getImg('fall.png')} alt='png' />
                     <div className={styles.desc1}>No Genesis NFT</div>
@@ -60,13 +73,16 @@ const Show = () => {
                 }
               </TabPanel>
               <TabPanel value="2">
-                {isNft1 > 0 && 
+                {stakedNfts !== null && 
                   <div className={styles.nftYes}>
-                        <Nft />
+                    {stakedNfts.map(nft => (
+                      <Nft key={nft.tokenId} type='1' 
+                      imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId}  />
+                    ))}
                         
                   </div>
                 }
-                {isNft1 === 0 && 
+                {stakedNfts === null && 
                   <div className={styles.nftNo} style={{ textAlign: 'center' }}>
                     <img src={getImg('fall.png')} alt='png' />
                     <div className={styles.desc1}>No Genesis NFT</div>

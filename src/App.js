@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/staking" element={<Staking />} />
         {/* <Route exact path="/nft_staking" element={<Nft_staking />} /> */}
-        <Route exact path='/detail' element={<Detail />} />
+        <Route exact path='/detail/:tokenId' element={<Detail />} />
       </Routes>
       <Footer/>
     </Router>

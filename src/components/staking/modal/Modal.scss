@@ -1,0 +1,171 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 1100;
+  }
+  
+  .modal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .modal.exit {
+    opacity: 0;
+  }
+  
+  .modal-content {
+
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-200px);
+
+    width: 527px;
+    /* height: 576px; */
+    /* Gray/grey - 80 */
+
+    background: #252525;
+    /* Blue */
+
+    border: 1px solid #076AFE;
+    box-sizing: border-box;
+    /* Blue glow */
+
+    box-shadow: 0px 2px 8px #076AFE;
+    border-radius: 8px;
+
+  }
+  
+  .modal.enter-done .modal-content {
+    transform: translateY(0);
+  }
+  
+  .modal.exit .modal-content {
+    transform: translateY(-200px);
+  }
+  
+  .modal-header,
+  .modal-footer {
+    padding: 10px;
+  }
+  
+  .modal-title {
+    margin: 0;
+  }
+  
+  .modal-body {
+    padding: 24px;
+    /* border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee; */
+  }
+  
+
+.modal_title {
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 28px;
+    color: #FCFCFC;
+}
+.duration {
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    color: #B5D2FF;
+    margin-top: 56px;
+}
+.buttonGroup {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.buttonGroup button {
+    width: 148px;
+    height: 48px; 
+    border-radius: 8px;
+    background: none;
+    border: 1px solid #076AFE;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #076AFE;
+    cursor: pointer;
+}
+.buttonGroup button:focus {
+    background-color: #076AFE;
+    color: white;
+}
+.summary {
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    color: #B5D2FF;
+    margin-top: 24px;
+}
+.data {
+    display: flex;
+    justify-content: space-between;
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 16px;
+    color: #F0EFEF;
+}   
+
+.btnConfirm {
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 54px;
+    display: flex;
+    justify-content: space-between;   
+}
+.btnConfirm .cancel {
+    width: 174px;
+    height: 56px;
+}
+.btnConfirm .confirm {
+    width: 287px;
+    height: 56px; 
+}
+@media only screen and (max-width: 620px) {
+    .modal-content {
+        width: 90%;
+    }
+    .duration {
+        margin-top: 40px;
+    }
+    .buttonGroup {
+        margin-top: 20px;
+    }
+    .btnConfirm .cancel {
+        width: 35%;
+    }
+    .btnConfirm .confirm {
+        width: 61%;
+    }
+}
+
+.btn {
+
+}
