@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Detail.module.scss'
-import { getImg } from '../../../utils/Helper'
+import { getImg } from '../../../helpers/Helper'
 
 import video1 from '../../../assets/MP4/IMG_1324.MP4'
 import * as config from '../../../config/config'

@@ -15,7 +15,8 @@ export const switchNetwork = async () => {
      });
    } catch (e) {
      if (e.code === 4001) {
-      throw alert("You rejected.")
+      // throw alert("You rejected.")
+      throw e
      }
      console.log(e);
      console.log('switchNetwork')
@@ -48,7 +49,7 @@ export const switchNetwork = async () => {
        method: "eth_requestAccounts",
      });
     
-    alert('success connect!')
+    // alert('success connect!')
      return {
        ...defaultWallet,
        walletProviderName: "metamask",

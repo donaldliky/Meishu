@@ -1,7 +1,7 @@
 import React, { useState,  } from 'react';
 import styles from './Show.module.scss'
 import Nft from '../../../components/nft/Nft'
-import { getImg } from '../../../utils/Helper';
+import { getImg } from '../../../helpers/Helper';
 
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -57,13 +57,22 @@ const Show = () => {
                         <Nft type='1' imgPath={imgPath1} video={video2} /> */}
                     {/* {allNftContent} */}
                     {allNfts.map(nft => (
-                      <Nft key={nft.tokenId} type='0' 
-                      imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId}  />
+                      <Nft key={nft.tokenId} name={nft.name} type='1' approved={nft.approved}
+                      imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId} desc={nft.desc}  />
                     ))}
                   </div>
                 </div>
                 }
-                {allNfts === null && 
+                {stakedNfts !== null && 
+                  <div className={styles.nftYes}>
+                    {stakedNfts.map(nft => (
+                      <Nft key={nft.tokenId} type='0' name={nft.name} level={nft.level}
+                      imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId}  />
+                    ))}
+                        
+                  </div>
+                }
+                {(allNfts === null && stakedNfts === null)&& 
                   <div className={styles.nftNo} style={{ textAlign: 'center' }}>
                     <img src={getImg('fall.png')} alt='png' />
                     <div className={styles.desc1}>No Genesis NFT</div>
@@ -72,11 +81,11 @@ const Show = () => {
                   </div>
                 }
               </TabPanel>
-              <TabPanel value="2">
+              <TabPanel value="2" style={{ padding: '0px' }}>
                 {stakedNfts !== null && 
                   <div className={styles.nftYes}>
                     {stakedNfts.map(nft => (
-                      <Nft key={nft.tokenId} type='1' 
+                      <Nft key={nft.tokenId} type='0' name={nft.name} level={nft.level}
                       imgPath={nft.imageUri} video={nft.video1} tokenId={nft.tokenId}  />
                     ))}
                         

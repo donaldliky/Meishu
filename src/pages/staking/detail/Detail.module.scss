@@ -58,15 +58,21 @@
                     margin-top: 15px;
                     .left1 {
                         width: 65%;
-                        background: #076AFE;
-                        border-radius: 8px;
-                        color: white;
-                        height: 56px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-weight: bold;
-                        cursor: pointer;
+                        button {
+                            width: 100%;
+                            border: 1px solid #076AFE;
+                            background: #076AFE;
+                            border-radius: 8px;
+                            color: white;
+                            height: 56px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            font-size: 16px;
+                            font-family: Space Grotesk;
+                            cursor: pointer;
+                        }
                     }
                     .right1 {
                         

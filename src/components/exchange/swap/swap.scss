@@ -1,0 +1,190 @@
+.swapBody {
+    width: 100%;
+    background: #141414;
+    border-radius: 8px;
+    margin: 16px 0px;
+    padding: 24px;
+    .top {
+        display: flex;
+        justify-content: space-between;
+        .left {
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 28px;
+            color: #FCFCFC;
+        }
+        .right {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    .ethBody {
+        margin-top: 28px;
+        padding: 16px 24px;
+        background: #353535;
+        border-radius: 8px;
+        .top {
+            display: flex;
+            justify-content: space-between;
+            .left {
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 14px;
+                color: #B5D2FF;
+            }
+            .right {
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 14px;
+                color: #B5D2FF;
+            }
+        }
+        .center {
+            margin-top: 8px;
+            font-family: 'Oswald';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: right;
+            color: #FCFCFC;
+            display: flex;
+            justify-content: space-between;
+            .left {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+            .right {
+
+            }
+        }
+        .bottom {
+            margin-top: 14px;
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 14px;
+            color: #B5D2FF;       
+            font {
+                color: #FCFCFC;
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 14px;
+
+                padding: 4px 6px;
+
+                position: static;
+                width: 34px;
+                height: 22px;
+                left: 112px;
+                top: 0px;
+
+                /* Blue/Blue -30 */
+
+                background: #83B5FF;
+                border-radius: 8px;
+            }     
+        }
+    }
+    .swapImg {
+        width: 100%;
+        margin: 16px auto;
+        display: flex;
+        justify-content: center;
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    .swapBtn {
+        background: #076AFE;
+        border-radius: 8px;
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        color: #FCFCFC;
+        width: 100%;
+        height: 64px;
+        text-transform: none;
+        margin: 24px 0;
+    }
+    .info {
+        border-top: 1px solid #2079FE;
+        padding-top: 17px;
+        .item {
+            display: flex;
+            justify-content: space-between;
+
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 14px;
+            display: flex;
+            align-items: center;
+            color: #DEDEDE;
+        }
+    }
+}
+.gasBody {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #605F5F;
+    box-sizing: border-box;
+    border-radius: 8px;
+    .img {
+        img {
+            width: 27.5px;
+            height: 30px;
+        }
+    }
+    .tracker {
+        margin-left: 14px;
+        // width: 50%;
+        .top {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #83B5FF;
+        }
+        .bottom {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .div {
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+            }
+            .v1 {
+                border: 1px solid #83B5FF;
+                transform: rotate(90deg);
+                width: 13px;
+                margin: 0 14px;
+            }
+        }
+    }
+}

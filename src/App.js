@@ -12,6 +12,7 @@ import Navbar from './pages/navbar/Navbar';
 import Home from './pages/home/Home';
 import Staking from './pages/staking/Staking';
 import Detail from './pages/staking/detail/Detail';
+import Exchange from './pages/exchange/Exchange';
 import Footer from './pages/footer/Footer';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         {/* <Home/> */}
         <Route exact path="/" element={<Home />} />
         <Route exact path="/staking" element={<Staking />} />
-        {/* <Route exact path="/nft_staking" element={<Nft_staking />} /> */}
+        <Route exact path="/exchange" element={<Exchange />} />
         <Route exact path='/detail/:tokenId' element={<Detail />} />
       </Routes>
       <Footer/>

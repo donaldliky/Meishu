@@ -1,0 +1,191 @@
+.exchangeChartBody {
+    width: 100%;
+    border-radius: 8px;
+    .chartBody {
+        padding: 32px 0px;
+        background: #141414;
+        border-radius: 8px;
+        .chartHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0px 48px;
+            .add {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 4px 24px;
+                border: 1px solid #076AFE;
+                box-sizing: border-box;
+                border-radius: 8px;                  
+                img {
+                    width: 24px;
+                    height: 24px; 
+                }   
+                .plus {
+                    margin-left: 8px;
+                    font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 24px;
+                    text-transform: uppercase;
+                    color: #076AFE;                   
+                }           
+            }           
+            .token {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;                
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;       
+                .top {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;                    
+                    padding: 0px;            
+                    .logo {
+                        img {
+                            width: 40px;
+                            height: 40px;                        
+                        }
+                        margin-right: 8px;
+                    }        
+                    .logo-title {
+                        font-family: 'Space Grotesk';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 22px;
+                        line-height: 26px;
+                        letter-spacing: 0.5px;
+                        color: #FCFCFC;                        
+                    }
+                }         
+                .bottom {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    .value {
+                        font-family: 'Space Grotesk';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 48px;
+                        line-height: 54px;
+                        color: #FCFCFC;              
+                        margin-right: 8px;          
+                    }                    
+                    .percent {
+                        font-family: 'Space Grotesk';
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #44CF84;                        
+                    }
+                }
+            }
+        }
+        .chart {
+            
+        }
+        .chartFooter {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 48px;
+            .left {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 0px;                
+            }            
+            .right {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;       
+                // justify-content: space-between; 
+                border: 1px solid #353535;
+                border-radius: 8px;
+                // padding: 8px;
+                // width: 30%;
+                .item {
+                    font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #83B5FF;           
+                    // margin: 5px;      
+                    width: 32px;   
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 8px 12px;
+                }                        
+            }
+        }
+    }
+    .chartStatus {
+        margin-top: 16px;
+        border: 1px solid #494847;
+        box-sizing: border-box;
+        border-radius: 8px;
+        display: flex;
+        justify-content: flex-start;
+        .item {
+            padding: 16px 0px 16px 48px;
+            .top {
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                color: #5197FE;
+            }
+            .bottom {
+                font-family: 'Space Grotesk';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 26px;
+                letter-spacing: 0.5px;
+                color: #F0EFEF;
+            }
+        }
+    }
+    .desc {
+        margin-top: 16px;
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #8C8C8C;
+    }
+    .contract {
+        margin-top: 16px;
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #F0EFEF;
+        display: flex;
+        justify-content: space-between;
+        background: #141414;
+        border-radius: 8px;
+        padding: 16px;
+        .right {
+            display: flex;
+
+        }
+    }
+}

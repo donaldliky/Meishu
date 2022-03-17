@@ -9,14 +9,18 @@ export default function Linkbar() {
 
   return (
     <div className="Linkbar">
-      <div>
-        <span onClick={() => set1()}>NFT Staking</span>
-        <div className={isTurn == 1 ? "light" : ""}></div>
-      </div>
-      <Link to={'/staking'}><div>
-        <span onClick={() => set2()}>Staking</span>
-        <div className={isTurn == 2 ? "lightr" : ""}></div>
-      </div></Link>
+      <Link to={'/staking'}>
+        <div>
+          <span onClick={() => set1()}>NFT Staking</span>
+          <div className={isTurn === 1 ? "light" : ""}></div>
+        </div>
+      </Link>
+      <Link to={'/exchange'}>
+        <div>
+          <span onClick={() => set2()}>Exchange</span>
+          <div className={isTurn === 2 ? "lightr" : ""}></div>
+        </div>
+      </Link>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getImg } from '../../utils/Helper';
+import { getImg } from '../../helpers/Helper';
 import { Link } from 'react-router-dom';
 import Linkbar from '../../components/link/Link';
 import { slide as Menu } from 'react-burger-menu'
@@ -38,7 +38,7 @@ const Navbar = () => {
                 <div style={{ float: 'start', marginRight: 0,  }}>
                     <Menu right >
                         <div id="home" className="menu-item" >NFT Staking</div>
-                        <Link to={'/staking'}><div id="about" className="menu-item" >Staking</div></Link>
+                        <Link to={'/staking'}><div id="about" className="menu-item" >Exchange</div></Link>
                         <Button variant="outlined" className={styles.address} onClick={() => onSetModal(true)} disabled={address !== 'Connect Wallet'}>{address}</Button>
                     </Menu>
                 </div>

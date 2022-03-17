@@ -7,38 +7,63 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import { getImg } from '../../utils/Helper';
+import { getImg } from '../../helpers/Helper';
 
 import './walletModal.scss'
 import * as walletMetamask from '../../helpers/wallet-metamask'
-// import * as walletconnect from '../../helpers/wallet-connect'
+import * as walletconnect from '../../helpers/wallet-connect'
 import axios from 'axios';
 // redux
 import { setConnection } from '../../slice/walletSlice';
-import { setAllNfts } from '../../slice/nftSlice';
+import { setAllNfts, setStakedNfts } from '../../slice/nftSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 // web3
 import { ethers } from 'ethers';
 import * as config from '../../config/config'
+
 import nftContractAbi from '../../config/contracts/NFT.json'
 import stakingContractAbi from '../../config/contracts/MEISHU_STAKING.json'
 import { hexToInt } from '../../helpers/utils';
+
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '30%',
+    width: '350px',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
     borderRadius: '15px',
 };
-
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const WalletModal = (props) => {
+    let desc1 = 'You connected successfully.'
+    let desc2 = 'Your connection failed.'
+    let desc3 = 'Install Metamask.'
+    const [alertTitle, setAlertTitle] = useState('')
+    const [alertType, setAlertType] = useState('')
+    const [state, setState] = useState({
+        open: false,
+        vertical: 'top',
+        horizontal: 'center',
+    });
+    const [stateFail, setStateFail] = useState({
+        openFail: false,
+        verticalFail: 'top',
+        horizontalFail: 'center',
+    });
+    const { vertical, horizontal, open } = state;
+    const { verticalFail, horizontalFail, openFail } = stateFail;
     const dispatch = useDispatch()
 
     const isMetaMaskInstalled = () => {       
@@ -55,11 +80,8 @@ const WalletModal = (props) => {
         window.location.reload()
     }
     function accountChanged(account) {
-        // alert("account changed")
         console.log('account changed')
         alert('account changed'+account)
-
-        // dispatch(setConnection({}))
     }
     function disconnect() {
         console.log('disconnect')
@@ -67,51 +89,75 @@ const WalletModal = (props) => {
     }
 
     async function getNftsFromContract(provider, account) {
-        // get All NFTs
+        console.log("Loading NFTs ...");
         const readContract = new ethers.Contract(
-            "0x6260ceA845838F5C3D26eca8fd4324e8C55E453F",
+            config.configVars.NFTAddress,
             nftContractAbi,
             provider
         )
         const tokenIds = await readContract.walletOfOwner(account)
         let nfts = []
         for (let i = 0; i < tokenIds.length; i++) {    
-            let nft = {tokenId: '', tokenUri: ''}
+            let nft = {tokenId: '', tokenUri: '', name: '', approved: '', desc: '', imageUri: ''}
             let jsonBody
             let jsonFile
             let orignImgUri
+            let approvedAddress
             nft.tokenId = hexToInt(tokenIds[i])
             nft.tokenUri = await readContract.tokenURI(tokenIds[i])
             jsonFile = await axios.get(nft.tokenUri)
             jsonBody = jsonFile.data
+            nft.name = jsonBody.name
             orignImgUri = jsonBody.image
             nft.imageUri = orignImgUri.replace('ipfs://', 'https://ipfs.io/ipfs/')
+            nft.desc = jsonBody.description
+            approvedAddress = await readContract.getApproved(tokenIds[i])
+            if (approvedAddress > 0) {
+                nft.approved = true
+            } else {
+                nft.approved = false
+            }
             nfts.push(nft)
         }
         console.log(nfts)
         dispatch(setAllNfts(nfts))
         // get staked NFTs
+
         const readStakingContract = new ethers.Contract(
-            "0x93d39E82a60154675dA86229908C80dCF6EdbDDa",
+            config.configVars.NFTStakingAddress,
             stakingContractAbi,
             provider
         )
         const stakedTokenIds = await readStakingContract.stakeOfOwner(account)
         let stakedNFTs = []
         for (let i = 0; i < stakedTokenIds.length; i++) {
-            let stakedNft = { stakedTokenId: '', stakedTokenUri: '', stakedOn: '', stakedOff: '', level: '' }
-            stakedNft.stakedTokenId = hexToInt(stakedTokenIds[i])
-            stakedNft.stakedTokenUri = await readContract.tokenURI(stakedTokenIds[i])
-            stakedNft.level = await readStakingContract.tokenStakedLevel
-            
+            let stakedNft = { tokenId: '', tokenUri: '', imageUri: '', level: '', name:  '' }
+            let jsonBody
+            let jsonFile
+            let orignImgUri
+
+            stakedNft.tokenId = hexToInt(stakedTokenIds[i])
+            stakedNft.tokenUri = await readContract.tokenURI(stakedTokenIds[i])
+            jsonFile = await axios.get(stakedNft.tokenUri)
+            jsonBody = jsonFile.data
+            stakedNft.name = jsonBody.name
+            orignImgUri = jsonBody.image
+            stakedNft.imageUri = orignImgUri.replace('ipfs://', 'https://ipfs.io/ipfs/')
+            let level = await readStakingContract.tokenStakedLevel(stakedNft.tokenId)
+            stakedNft.level = parseInt(level, 10)
+            stakedNFTs.push(stakedNft)
         }
+        console.log(stakedNFTs);
+        dispatch(setStakedNfts(stakedNFTs))
+        console.log("Loading ended.");
     }
     async function onConnect(walletName) {
         let wallet
         if (walletName === 'metamask') {
             let flag = isMetaMaskInstalled()
             if (!flag) {
-                alert("install metamask")
+                // alert("install metamask")
+                openModal({vertical: 'top',horizontal: 'right',}, desc3, 'warning')
                 props.onSetModal(false)
                 return
             }
@@ -120,7 +166,8 @@ const WalletModal = (props) => {
             wallet = await walletMetamask.connect()
             if (wallet.connected == true) {
                 console.log('Connected successfully.')
-                // console.log('wallet: ', wallet)
+                openModal({vertical: 'top',horizontal: 'right',}, desc1, 'success')
+                
                 let provider = wallet.browserWeb3Provider;
                 let chainId = wallet.chainId;
                 let account = wallet.address;
@@ -130,18 +177,45 @@ const WalletModal = (props) => {
                 window.ethereum.on("accountsChanged", accountChanged);
                 window.ethereum.on("disconnect", disconnect);
             } else {
-                alert('Connect failed. Poor you.')
+                openModal({vertical: 'top',horizontal: 'right',}, desc2, 'error')
                 return
             }
         } else {
-            alert('Wallet Connect Cannot be')
+            // alert('Wallet Connect Cannot be')
+            wallet = await walletconnect.connect() 
+            if (wallet.connected == true) {
+                console.log('Connected successfully.')
+                openModal({vertical: 'top',horizontal: 'right',}, desc1, 'success')
+                
+                let provider = wallet.browserWeb3Provider;
+                let chainId = wallet.chainId;
+                let account = wallet.address;
+                let connected = wallet.connected;
+                dispatch(setConnection({ provider, account, chainId, connected }))
+            } else {
+                // alert("Your connection failed.")
+                openModal({vertical: 'top',horizontal: 'right',}, desc2, 'error')
+                console.log("Your connection failed.");
+            }
         }
         let temp = filterAddress(wallet.address)
             props.setAddress(temp)
             props.onSetModal(false)
         getNftsFromContract(wallet.browserWeb3Provider, wallet.address)
     }
-    
+    function openModal(newState, desc, type) {
+        setAlertTitle(desc)
+        setAlertType(type)
+        setState({ open: true, ...newState });
+    }
+    // function openFailedModal(newState) {
+    //     setAlertTitle(desc2)
+    //     setState({ open: true, ...newState });
+    // }
+    const handleClose = () => {
+        setState({ ...state, open: false });
+    };
+
     return (
         <div>
             <Modal
@@ -178,6 +252,14 @@ const WalletModal = (props) => {
                 </Box>
                 </Fade>
             </Modal>
+            <Snackbar  anchorOrigin={{ vertical, horizontal }} open={open} onClose={handleClose} key={vertical + horizontal}>
+                <Alert severity={alertType}
+                // iconMapping={{success: <CheckCircleRoundedIcon fontSize="inherit" sx={{ color: 'white',}} />,}} 
+                sx={{ width: '100%', height: '56px',display: 'flex',justifyContent: 'center', alignItems: 'center',fontSize: '16px',  }}
+                >
+                {alertTitle}
+                </Alert>
+            </Snackbar>
         </div>
     )
 }

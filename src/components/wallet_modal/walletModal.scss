@@ -5,7 +5,7 @@
     .wallet {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         cursor: pointer;
         .left {
@@ -19,6 +19,7 @@
         }
         
         .right {
+            margin-left: 30px;
             color: black;
             font-size: 25px;
             font-family: Space Grotesk;

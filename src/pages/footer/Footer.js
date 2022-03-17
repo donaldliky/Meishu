@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 
-import { getImg } from '../../utils/Helper'
+import { getImg } from '../../helpers/Helper'
 
 const Footer = () => {
   return (
